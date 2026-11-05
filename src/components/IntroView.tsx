@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ArrowRight, Sparkles, CheckCircle2, Code2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { DaisyFlower, RetroSmiley, SparkleStar, Rainbow } from './FloatingStickers';
 
 interface IntroViewProps {
@@ -10,24 +10,9 @@ interface IntroViewProps {
 export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
-  const cardStageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Intro timeline
-      const tl = gsap.timeline();
-
-      tl.fromTo(
-        '.gsap-intro-tag',
-        { opacity: 0, y: -20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' }
-      )
-        .fromTo(
-          '.gsap-intro-card',
-          { opacity: 0, y: 40, rotation: -2 },
-          { opacity: 1, y: 0, rotation: 0, duration: 0.8, ease: 'elastic.out(1, 0.75)' },
-          '-=0.3'
-        );
     }, containerRef);
 
     return () => ctx.revert();
@@ -36,34 +21,34 @@ export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz }) => {
   return (
     <div ref={containerRef} className="relative z-10 w-full">
       {/* Decorative Stickers positioned around the hero like in the screenshots */}
-      <div className="absolute top-12 left-6 md:left-12 gsap-sticker">
+      <div className="absolute top-12 left-6 md:left-12">
         <DaisyFlower size={194} className="animate-spin-slow" />
       </div>
-      <div className="absolute top-20 right-8 md:right-16 gsap-sticker">
+      <div className="absolute top-20 right-8 md:right-16">
         <RetroSmiley size={64} />
       </div>
-      <div className="absolute bottom-20 right-1 md:right-100 gsap-sticker [--motion-pulse-offset:0.15;]">
+      <div className="absolute bottom-20 right-1 md:right-100 [--motion-pulse-offset:0.15;]">
         <SparkleStar size={48} className="animate-float-pulse" />
       </div>
-      <div className="absolute top-4 right-1/2 gsap-sticker">
+      <div className="absolute top-4 right-1/2">
         <SparkleStar size={40} className="animate-float-pulse" />
       </div>
-      <div className="absolute top-60 left-150 gsap-sticker">
+      <div className="absolute top-60 left-150">
         <SparkleStar size={30} className="animate-float-pulse [--motion-pulse-offset:0.12;]" />
       </div>
-      <div className="absolute bottom-1/2 left-8 md:left-20 gsap-sticker">
+      <div className="absolute bottom-1/2 left-8 md:left-20">
         <SparkleStar size={28} className="animate-float-pulse" />
       </div>
-      <div className="absolute bottom-50 left-8 md:left-100 gsap-sticker">
+      <div className="absolute bottom-50 left-8 md:left-100">
         <SparkleStar size={68} className="animate-float-pulse" />
       </div>
-      <div className="absolute bottom-30 right-10 md:right-24 gsap-sticker [transform:rotate(45deg)]">
+      <div className="absolute bottom-30 right-10 md:right-24 [transform:rotate(45deg)]">
         <DaisyFlower size={124} className="animate-spin-slow" />
       </div>
-      <div className="absolute -bottom-40 left-0 gsap-sticker">
+      <div className="absolute -bottom-40 left-0">
         <Rainbow size={673} />
       </div>
-      <div className="absolute -top-60 right-0 gsap-sticker sticker-rainbow">
+      <div className="absolute -top-60 right-0 sticker-rainbow">
         <Rainbow size={875} />
       </div>
 

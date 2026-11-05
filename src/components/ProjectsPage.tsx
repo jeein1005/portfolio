@@ -1,31 +1,36 @@
 import React, { useState } from 'react';
-import { Heart, Check, Github, ArrowLeft } from 'lucide-react';
+import { Heart, Check, Github, ArrowLeft, ArrowUp } from 'lucide-react';
 import { PORTFOLIO_PROJECTS, ProjectItem } from '../data/portfolioData';
-import { DaisyFlower, RetroSmiley, SparkleStar } from './FloatingStickers';
+import { DaisyFlower, RetroSmiley } from './FloatingStickers';
 
 interface ProjectsPageProps {
   onBackToQuiz: () => void;
+  embedded?: boolean;
 }
 
-export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onBackToQuiz }) => {
-  const [activeFilter, setActiveFilter] = useState<string>('All');
+export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onBackToQuiz, embedded = false }) => {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
-  const categories = ['All', 'Interactive Web', 'Design System', 'Full Responsive'];
-
-  const filteredProjects = activeFilter === 'All'
-    ? PORTFOLIO_PROJECTS
-    : PORTFOLIO_PROJECTS.filter((p) => p.category === activeFilter);
-
   return (
-    <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 pt-24 pb-20 flex flex-col items-center">
-      {/* Decorative Stickers */}
-      <div className="absolute top-16 left-6 md:left-14">
-        <DaisyFlower size={68} className="animate-spin-slow" />
-      </div>
-      <div className="absolute top-20 right-8 md:right-16">
-        <RetroSmiley size={60} className="animate-float-slow" />
-      </div>
+    <div
+      id="projects"
+      className={
+        embedded
+          ? 'relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center scroll-mt-24 pt-2'
+          : 'relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 pt-24 pb-20 flex flex-col items-center'
+      }
+    >
+      {/* Decorative Stickers only when viewed standalone */}
+      {!embedded && (
+        <>
+          <div className="absolute top-16 left-6 md:left-14">
+            <DaisyFlower size={68} className="animate-spin-slow" />
+          </div>
+          <div className="absolute top-20 right-8 md:right-16">
+            <RetroSmiley size={60} className="animate-float-slow" />
+          </div>
+        </>
+      )}
 
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto mb-10 relative">
@@ -44,30 +49,13 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onBackToQuiz }) => {
         <p className="font-sans-body text-sm sm:text-base text-slate-900 font-medium max-w-xl mx-auto leading-relaxed">
           1px의 오차 없는 섬세한 퍼블리싱 마크업과 생동감 넘치는 웹 인터랙션으로 완성된 프로젝트 컬렉션입니다.
         </p>
-
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-6">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold border-2 border-black shadow-[2px_2px_0_#000] transition-all cursor-pointer ${
-                activeFilter === cat
-                  ? 'bg-[#fef08a] text-black font-black -translate-y-0.5'
-                  : 'bg-white text-slate-800 hover:bg-slate-100'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
       </div>
 
       {/* Main Content Box */}
       <div className="w-full bg-[#fff5f7] border-3 md:border-4 border-black rounded-2xl md:rounded-3xl p-5 sm:p-8 md:p-12 shadow-[8px_8px_0_#000] relative">
         {/* Project Card Grid (Playing Cards) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProjects.map((project) => (
+          {PORTFOLIO_PROJECTS.map((project) => (
             <div
               key={project.id}
               onClick={() => setSelectedProject(selectedProject?.id === project.id ? null : project)}
@@ -183,8 +171,17 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onBackToQuiz }) => {
           </div>
         )}
 
-        {/* Bottom Navigation Back to Quiz */}
-        <div className="mt-10 pt-6 border-t-2 border-black/15 flex justify-center">
+        {/* Bottom Navigation Back to Quiz & Scroll to Top */}
+        <div className="mt-10 pt-6 border-t-2 border-black/15 flex flex-wrap items-center justify-center gap-3">
+          {embedded && (
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-black font-black text-sm sm:text-base px-5 py-3 rounded-full border-2 border-black shadow-brutal cursor-pointer"
+            >
+              <ArrowUp className="w-4 h-4" />
+              <span>맨 위로 (About Me)</span>
+            </button>
+          )}
           <button
             onClick={onBackToQuiz}
             className="inline-flex items-center gap-2 bg-[#fef08a] hover:bg-[#fde047] text-black font-black text-sm sm:text-base px-6 py-3 rounded-full border-2 border-black shadow-brutal cursor-pointer"

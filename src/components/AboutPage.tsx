@@ -1,14 +1,33 @@
-import React, { useState } from 'react';
-import { Mail, Github, MapPin, Briefcase, Award, Check, Copy, ArrowLeft } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, Github, MapPin, Briefcase, Award, Check, Copy, ArrowLeft, FolderGit2 } from 'lucide-react';
 import { DEVELOPER_PROFILE } from '../data/portfolioData';
-import { DaisyFlower, RetroSmiley, SparkleStar } from './FloatingStickers';
+import { DaisyFlower, RetroSmiley } from './FloatingStickers';
+import { ProjectsPage } from './ProjectsPage';
 
 interface AboutPageProps {
   onBackToQuiz: () => void;
+  initialSection?: 'about' | 'projects';
+  onNavigateToProjects?: () => void;
 }
 
-export const AboutPage: React.FC<AboutPageProps> = ({ onBackToQuiz }) => {
+export const AboutPage: React.FC<AboutPageProps> = ({
+  onBackToQuiz,
+  initialSection = 'about',
+  onNavigateToProjects
+}) => {
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (initialSection === 'projects') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById('projects');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [initialSection]);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(DEVELOPER_PROFILE.email);
@@ -169,8 +188,23 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBackToQuiz }) => {
           </a>
         </div>
 
-        {/* Back to Quiz Button */}
-        <div className="pt-4 flex justify-center">
+        {/* Quick Jump to Projects & Back to Quiz */}
+        <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
+          <button
+            onClick={() => {
+              if (onNavigateToProjects) {
+                onNavigateToProjects();
+              } else {
+                const el = document.getElementById('projects');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="inline-flex items-center gap-2 bg-[#fef08a] hover:bg-[#fde047] text-slate-950 font-black text-sm px-6 py-2.5 rounded-full border-2 border-black shadow-brutal cursor-pointer"
+          >
+            <FolderGit2 className="w-4 h-4 text-slate-900" />
+            <span>프로젝트 컬렉션 바로보기 (4)</span>
+          </button>
+
           <button
             onClick={onBackToQuiz}
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-black text-sm px-6 py-2.5 rounded-full border-2 border-black shadow-brutal cursor-pointer"
@@ -179,6 +213,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBackToQuiz }) => {
             <span>퀴즈 페이지로 돌아가기</span>
           </button>
         </div>
+      </div>
+
+      {/* Embedded Projects Section */}
+      <div className="w-full mt-16">
+        <ProjectsPage onBackToQuiz={onBackToQuiz} embedded={true} />
       </div>
     </div>
   );
