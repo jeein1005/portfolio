@@ -22,5 +22,3 @@ yarn-debug.log*
 
 # npm 전용 환경 구축 시 불필요한 패키지 락 파일 제외
 bun.lock
-
-public/
