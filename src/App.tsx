@@ -122,24 +122,6 @@ export default function App() {
             <AboutPage onBackToQuiz={() => handleNavigate('quiz')} />
           )}
         </main>
-
-        {/* Minimal Footer */}
-        <footer className="relative z-20 py-5 text-center text-xs font-semibold text-slate-800/80 px-4">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span>JEEIN.DEV Interactive Portfolio</span>
-            <span>·</span>
-            <span>Inter & Pretendard</span>
-            <span>·</span>
-            <span>Tailwind CSS & GSAP</span>
-            <span>·</span>
-            <button
-              onClick={() => handleNavigate('about')}
-              className="hover:underline font-bold text-slate-900 cursor-pointer"
-            >
-              Eom Jeein © 2026
-            </button>
-          </div>
-        </footer>
       </div>
     </div>
   );
