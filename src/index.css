@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+}
+
+@layer base {
+  :root {
+    --font-sans-body: 'Inter', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    --font-serif-title: 'Instrument Serif', Georgia, serif;
+    --font-script: 'Alex Brush', cursive;
+  }
+
+  body {
+    font-family: var(--font-sans-body);
+    background-color: #58a0f2;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.45) 0%, transparent 45%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 40%),
+      radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+      linear-gradient(180deg, #4b92eb 0%, #68adfc 50%, #90c7ff 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #111827;
+  }
+}
+
+/* Custom Tailwind utility classes */
+.font-serif-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-sans-body {
+  font-family: 'Inter', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+/* Backward-compatible alias classes */
+.font-bodoni {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+/* App container constraint max-width 1920px */
+.app-container {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* Retro 3D Typography with Instrument Serif for elegant editorial presence */
+.retro-3d-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  color: #ffccd5;
+  text-shadow: 
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    4px 4px 0 #000,
+    6px 6px 0 #000,
+    8px 8px 0 rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.02em;
+}
+
+/* Decorative cursive connector in Alex Brush */
+.retro-script-word {
+  font-family: 'Alex Brush', cursive;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: lowercase;
+  color: #ffccd5;
+  text-shadow: 
+    -1.5px -1.5px 0 #000,
+    1.5px -1.5px 0 #000,
+    -1.5px 1.5px 0 #000,
+    1.5px 1.5px 0 #000,
+    3px 3px 0 #000,
+    5px 5px 0 rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  transform: rotate(-6deg);
+  line-height: 0.8;
+}
+
+.retro-3d-yellow {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  color: #fef08a;
+  text-shadow: 
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    4px 4px 0 #000,
+    5px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Neo-brutalist shadows */
+.shadow-brutal {
+  box-shadow: 4px 4px 0px #000;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shadow-brutal:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.shadow-brutal:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+.shadow-card {
+  box-shadow: 6px 6px 0px #000;
+}
+
+.shadow-card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shadow-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 10px 0px #000;
+}
+
+/* Floating stickers */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-4deg);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}

@@ -1,0 +1,26 @@
+# 의존성 패키지 (용량 문제)
+node_modules/
+
+# 빌드 결과물
+dist/
+dist-ssr/
+
+# 환경 변수 및 보안
+.env
+.env.*
+!.env.example
+
+# OS 및 에디터 임시 파일
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# 로그 파일
+npm-debug.log*
+yarn-debug.log*
+
+# npm 전용 환경 구축 시 불필요한 패키지 락 파일 제외
+bun.lock
+
+public/

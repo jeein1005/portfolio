@@ -1,0 +1,6 @@
+{
+  "name": "Match My Dev — 인터랙티브 포트폴리오",
+  "description": "A/B 퀴즈로 알아보는 나에게 딱 맞는 프론트엔드 퍼블리셔 & 인터랙티브 웹 개발자 포트폴리오",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
