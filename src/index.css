@@ -10,6 +10,30 @@
     --font-sans-body: 'Inter', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
     --font-serif-title: 'Instrument Serif', Georgia, serif;
     --font-script: 'Alex Brush', cursive;
+
+    --theme-spx-ratio: 1; 
+    --font_0: normal normal normal calc(220 * var(--theme-spx-ratio) * 1px) / 0.9em 'Instrument Serif', serif;
+    --color_14: 255, 199, 233;
+
+    --motion-breathe-perspective: ;
+    --motion-breathe-distance: 13px;
+    --motion-breathe-x: 0;
+    --motion-breathe-y: 1;
+    --motion-breathe-z: 0;
+
+    --motion-pulse-offset:0.1;
+  }
+
+  @media (max-width: 1024px) {
+    :root {
+      --theme-spx-ratio: 0.75;
+    }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --theme-spx-ratio: 0.5;
+    }
   }
 
   body {
@@ -73,8 +97,7 @@
   font-family: 'Alex Brush', cursive;
   font-style: normal;
   font-weight: 400;
-  text-transform: lowercase;
-  color: #ffccd5;
+  text-transform: none;
   text-shadow: 
     -1.5px -1.5px 0 #000,
     1.5px -1.5px 0 #000,
@@ -83,7 +106,7 @@
     3px 3px 0 #000,
     5px 5px 0 rgba(0, 0, 0, 0.2);
   display: inline-block;
-  transform: rotate(-6deg);
+  z-index: 1;
   line-height: 0.8;
 }
 
@@ -100,24 +123,28 @@
     5px 5px 0 rgba(0, 0, 0, 0.15);
 }
 
+.sticker-rainbow {
+  transform: rotate(-180deg);
+}
+
 /* Neo-brutalist shadows */
 .shadow-brutal {
-  box-shadow: 4px 4px 0px #000;
+  box-shadow: 1px 2px 0px #000;
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .shadow-brutal:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #000;
+  box-shadow: 3px 4px 0px #000;
 }
 
 .shadow-brutal:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #000;
+  box-shadow: 1px 2px 0px #000;
 }
 
 .shadow-card {
-  box-shadow: 6px 6px 0px #000;
+  box-shadow: 1px 2px 0px #000;
 }
 
 .shadow-card-hover {
@@ -127,6 +154,14 @@
 .shadow-card-hover:hover {
   transform: translateY(-4px);
   box-shadow: 8px 10px 0px #000;
+}
+
+/* text size */
+.text-title {
+  font: var(--font_0);
+  color: rgb(var(--color_14));
+  letter-spacing: -0.04em;
+  font-size: max(70px, min(327px, calc(220 * var(--theme-spx-ratio) * 1px)));
 }
 
 /* Floating stickers */
@@ -139,15 +174,6 @@
   }
 }
 
-@keyframes float-reverse {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(10px) rotate(-4deg);
-  }
-}
-
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
@@ -157,14 +183,58 @@
   }
 }
 
+@keyframes motion-pulse {
+    27% {
+        transform: scale(calc(0.96 - var(--motion-pulse-offset)));
+    }
+
+    45% {
+        transform: scale(1);
+    }
+
+    72% {
+        transform: scale(calc(0.96 - var(--motion-pulse-offset)));
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes motion-breathe-1 {
+    0% {
+        animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+        transform: var(--motion-breathe-perspective, ) translate3d(0, 0, 0) rotateZ(var(--comp-rotate-z, 0deg));
+    }
+
+    25% {
+        animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        transform: var(--motion-breathe-perspective, ) translate3d(calc(var(--motion-breathe-x) * var(--motion-breathe-distance)), calc(var(--motion-breathe-y) * var(--motion-breathe-distance)), calc(var(--motion-breathe-z) * var(--motion-breathe-distance))) rotateZ(var(--comp-rotate-z, 0deg));
+    }
+
+    75% {
+        animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+        transform: var(--motion-breathe-perspective, ) translate3d(calc(var(--motion-breathe-x) * -1 * var(--motion-breathe-distance)), calc(var(--motion-breathe-y) * -1 * var(--motion-breathe-distance)), calc(var(--motion-breathe-z) * -1 * var(--motion-breathe-distance))) rotateZ(var(--comp-rotate-z, 0deg));
+    }
+
+    100% {
+        transform: var(--motion-breathe-perspective, ) translate3d(0, 0, 0) rotateZ(var(--comp-rotate-z, 0deg));
+    }
+}
+
 .animate-float-slow {
   animation: float-slow 5s ease-in-out infinite;
 }
 
-.animate-float-reverse {
-  animation: float-reverse 6s ease-in-out infinite;
+.animate-float-pulse {
+  animation: motion-pulse 4000ms 1ms linear infinite;
 }
 
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
+}
+
+.animate-breathe-slow {
+  animation: motion-breathe-1 4000ms 1ms linear infinite;
+  animation-composition: replace;
 }
