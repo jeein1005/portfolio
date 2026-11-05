@@ -37,27 +37,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Zone 2: Navigation Links - Text only, NO icons as requested */}
       <nav className="flex items-center gap-2 sm:gap-3" aria-label="Main Navigation">
-        {activeTab !== 'quiz' && (
-          <button
-            onClick={() => onNavigate('quiz')}
-            className="font-sans-body bg-white text-slate-900 border-2 border-black rounded-full px-4 py-1.5 text-xs sm:text-sm font-bold shadow-brutal hover:bg-yellow-100 transition-colors cursor-pointer"
-          >
-            Home / Quiz
-          </button>
-        )}
-
-        {activeTab === 'quiz' && quizStep !== 'intro' && onResetQuiz && (
-          <button
-            onClick={onResetQuiz}
-            className="font-sans-body bg-white text-slate-900 border-2 border-black rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-bold shadow-brutal hover:bg-yellow-100 transition-colors cursor-pointer"
-          >
-            다시하기
-          </button>
-        )}
-
         <button
           onClick={() => onNavigate('projects')}
-          className={`font-sans-body border-2 border-black rounded-full px-4 sm:px-5 py-1.5 text-xs sm:text-sm font-bold shadow-brutal transition-colors cursor-pointer ${
+          className={`font-sans-body border-1 border-black rounded-full px-4 sm:px-5 py-1.5 text-xs sm:text-sm shadow-brutal transition-colors cursor-pointer ${
             activeTab === 'projects'
               ? 'bg-[#fef08a] text-black font-black'
               : 'bg-white text-slate-900 hover:bg-pink-100'
@@ -68,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         <button
           onClick={() => onNavigate('about')}
-          className={`font-sans-body border-2 border-black rounded-full px-4 sm:px-5 py-1.5 text-xs sm:text-sm font-bold shadow-brutal transition-colors cursor-pointer ${
+          className={`font-sans-body border-1 border-black rounded-full px-4 sm:px-5 py-1.5 text-xs sm:text-sm shadow-brutal transition-colors cursor-pointer ${
             activeTab === 'about'
               ? 'bg-[#fef08a] text-black font-black'
               : 'bg-white text-slate-900 hover:bg-pink-100'
