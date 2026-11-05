@@ -110,7 +110,7 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ onComplete, onReset })
         <RetroSmiley size={54} className="animate-float-slow" />
       </div>
       <div className="absolute bottom-12 left-10 hidden md:block">
-        <SparkleStar size={42} fill="#FFF" className="animate-float-reverse" />
+        <SparkleStar size={42} className="animate-float-pulse" />
       </div>
 
       {/* Question Header & Category */}
