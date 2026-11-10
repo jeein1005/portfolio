@@ -24,8 +24,11 @@ export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz }) => {
       <div className="absolute top-12 left-6 md:left-12">
         <DaisyFlower size={194} className="animate-spin-slow" />
       </div>
-      <div className="absolute top-20 right-8 md:right-16">
+      <div className="absolute top-45 left-1/2 md:left-1/2 md:ml-100">
         <RetroSmiley size={64} />
+      </div>
+      <div className="absolute z-5 bottom-30 left-40 md:left-40">
+        <RetroSmiley size={80} />
       </div>
       <div className="absolute bottom-20 right-1 md:right-100 [--motion-pulse-offset:0.15;]">
         <SparkleStar size={48} className="animate-float-pulse" />
@@ -45,10 +48,10 @@ export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz }) => {
       <div className="absolute bottom-30 right-10 md:right-24 [transform:rotate(45deg)]">
         <DaisyFlower size={124} className="animate-spin-slow" />
       </div>
-      <div className="absolute -bottom-40 left-0">
+      <div className="absolute -bottom-40 right-1/2 md:mr-100">
         <Rainbow size={673} />
       </div>
-      <div className="absolute -top-60 right-0 sticker-rainbow">
+      <div className="absolute -top-60 left-1/2 md:ml-60 sticker-rainbow">
         <Rainbow size={875} />
       </div>
 
