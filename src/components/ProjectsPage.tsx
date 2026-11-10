@@ -34,10 +34,6 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onBackToQuiz, embedd
 
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto mb-10 relative">
-        <div className="inline-flex items-center gap-2 bg-white border-2 border-black rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider shadow-brutal mb-3 text-slate-800">
-          <span>FEATURED WORKS & EXPERIMENTS</span>
-        </div>
-
         <h1 className="retro-3d-title font-serif-title text-4xl sm:text-6xl md:text-7xl tracking-tight mb-3 uppercase flex items-center justify-center flex-wrap gap-x-2 sm:gap-x-4">
           <span>WALL</span>
           <span className="retro-script-word font-script text-5xl sm:text-7xl md:text-8xl mx-1 sm:mx-2 select-none">

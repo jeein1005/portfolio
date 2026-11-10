@@ -102,43 +102,12 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ onComplete, onReset })
 
   return (
     <div className="relative z-10 w-full max-w-6xl mx-auto px-4 pt-20 pb-16 flex flex-col items-center justify-center min-h-[calc(100vh-80px)]">
-      {/* Floating retro stickers matching reference */}
-      <div className="absolute top-10 left-4 md:left-8">
-        <DaisyFlower size={64} className="animate-spin-slow" />
-      </div>
-      <div className="absolute top-16 right-6 md:right-12">
-        <RetroSmiley size={54} className="animate-float-slow" />
-      </div>
-      <div className="absolute bottom-12 left-10 hidden md:block">
-        <SparkleStar size={42} className="animate-float-pulse" />
-      </div>
-
-      {/* Question Header & Category */}
-      <div className="text-center mb-6">
-        <div className="inline-flex items-center gap-2 bg-white border-2 border-black rounded-full px-4 py-1 text-xs font-black uppercase tracking-wider shadow-brutal mb-2">
-          <span>Question {currentQuestion.questionNumber} of {QUIZ_QUESTIONS.length.toString().padStart(2, '0')}</span>
-          <span className="text-slate-300">·</span>
-          <span className="text-pink-600">{currentQuestion.category}</span>
-        </div>
-
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-          {currentQuestion.title}
-        </h2>
-        <p className="text-xs sm:text-sm text-slate-700 font-medium mt-1">
-          {currentQuestion.subtitle}
-        </p>
-      </div>
-
       {/* Main Interactive Stage Box (Reflecting the layout from reference Screenshot 1) */}
       <div
         ref={stageRef}
         className="w-full bg-[#fff4f6] border-3 md:border-4 border-black rounded-2xl md:rounded-3xl p-4 sm:p-8 md:p-12 shadow-[8px_8px_0_#000] relative overflow-hidden"
       >
         {/* Top bar with progress indicator */}
-        <div className="flex items-center justify-between mb-8 pb-3 border-b-2 border-black/15 text-xs font-black tracking-widest text-slate-600">
-          <span className="uppercase">CHOOSE A OR B TO CONTINUE</span>
-          <span>STEP {currentIndex + 1} / {QUIZ_QUESTIONS.length}</span>
-        </div>
 
         {/* 3-Column A/B Layout with central playing card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center min-h-[380px] sm:min-h-[420px]">
@@ -169,11 +138,6 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ onComplete, onReset })
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 {currentQuestion.options.A.description}
               </p>
-
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-black transition-colors">
-                <span>선택하기</span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
             </button>
           </div>
 
@@ -262,9 +226,8 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ onComplete, onReset })
               style={{ width: `${((currentIndex + 1) / QUIZ_QUESTIONS.length) * 100}%` }}
             />
           </div>
-          <div className="flex justify-between text-[11px] font-bold text-slate-500 mt-2">
-            <span>START</span>
-            <span>RESULT 100% MATCH</span>
+          <div className="flex items-center justify-between mb-8 pb-3 border-b-2 border-black/15 text-xs font-black tracking-widest text-slate-600">
+            <span>STEP {currentIndex + 1} / {QUIZ_QUESTIONS.length}</span>
           </div>
         </div>
       </div>

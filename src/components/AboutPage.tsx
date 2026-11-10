@@ -47,16 +47,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto mb-10 relative">
-        <div className="inline-flex items-center gap-2 bg-white border-2 border-black rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider shadow-brutal mb-3 text-slate-800">
-          <span>ABOUT ME & DOSSIER</span>
-        </div>
-
         <h1 className="retro-3d-title text-4xl sm:text-6xl md:text-7xl font-black tracking-tight mb-3 uppercase">
           ABOUT THE DEVELOPER
         </h1>
 
         <p className="text-sm sm:text-base text-slate-900 font-medium max-w-lg mx-auto leading-relaxed">
-          디테일에 집착하고 생동감 있는 웹 경험을 만드는 프론트엔드 퍼블리셔 엄지인입니다.
+          생동감 있는 웹 경험을 만드는 프론트엔드 퍼블리셔 엄지인입니다.
         </p>
       </div>
 

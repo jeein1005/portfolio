@@ -27,12 +27,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           JEEIN.DEV
         </button>
-
-        {activeTab === 'quiz' && quizStep === 'question' && (
-          <span className="hidden sm:inline-block text-xs font-bold font-sans-body bg-white/90 text-slate-800 px-3 py-1 rounded-full border border-black shadow-[1px_1px_0_#000]">
-            Interactive Match Quiz
-          </span>
-        )}
       </div>
 
       {/* Zone 2: Navigation Links - Text only, NO icons as requested */}
