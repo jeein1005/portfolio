@@ -47,11 +47,10 @@ export const HeartLoader: React.FC<HeartLoaderProps> = ({ onFinish, minDuration 
     };
   }, [minDuration, onFinish]);
 
-  // SVG heart geometry (width 100, height 90)
-  // Heart bounds: approx y from 12 to 85, total height ~73
-  // Y coordinate of liquid level: 85 - (progress / 100) * 73
-  const heartHeight = 75;
-  const bottomY = 88;
+  // SVG heart geometry (viewBox: 0 0 512 512 기준)
+  // 하트 최하단 Y = 448, 최상단 곡선 Y = 약 40 (총 높이: 408)
+  const bottomY = 448;
+  const heartHeight = 408;
   const liquidY = bottomY - (progress / 100) * heartHeight;
 
   return (
@@ -66,7 +65,7 @@ export const HeartLoader: React.FC<HeartLoaderProps> = ({ onFinish, minDuration 
         {/* Heart SVG matching Screenshot_2026-10-29_at_1.45.15_PM_73f56cb6.png */}
         <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 relative">
           <svg
-            viewBox="0 0 100 92"
+            viewBox="0 0 512 512"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="w-full h-full drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]"
@@ -74,15 +73,13 @@ export const HeartLoader: React.FC<HeartLoaderProps> = ({ onFinish, minDuration 
             <defs>
               {/* Clip path defining the heart silhouette */}
               <clipPath id="heartMask">
-                <path
-                  d="M50 85 C50 85 12 60 12 32 C12 18 24 10 37 10 C44 10 48 14 50 18 C52 14 56 10 63 10 C76 10 88 18 88 32 C88 60 50 85 50 85 Z"
-                />
+                <path d="M 256 448 C 244.6 448 233.8 443.3 225.8 435.1 L 63.8 269 C 14.8 218.8 16.5 137.9 67.5 89.8 C 117.8 42.4 197.8 45.8 244.1 97.4 L 256 110.7 L 267.9 97.4 C 314.2 45.8 394.2 42.4 444.5 89.8 C 495.5 137.9 497.2 218.8 448.2 269 L 286.2 435.1 C 278.2 443.3 267.4 448 256 448 Z" />
               </clipPath>
             </defs>
 
             {/* Background of heart: soft lavender/pink tint */}
             <path
-              d="M50 85 C50 85 12 60 12 32 C12 18 24 10 37 10 C44 10 48 14 50 18 C52 14 56 10 63 10 C76 10 88 18 88 32 C88 60 50 85 50 85 Z"
+              d="M 256 448 C 244.6 448 233.8 443.3 225.8 435.1 L 63.8 269 C 14.8 218.8 16.5 137.9 67.5 89.8 C 117.8 42.4 197.8 45.8 244.1 97.4 L 256 110.7 L 267.9 97.4 C 314.2 45.8 394.2 42.4 444.5 89.8 C 495.5 137.9 497.2 218.8 448.2 269 L 286.2 435.1 C 278.2 443.3 267.4 448 256 448 Z"
               fill="#fbeff3"
             />
 
@@ -91,8 +88,8 @@ export const HeartLoader: React.FC<HeartLoaderProps> = ({ onFinish, minDuration 
               <rect
                 x="0"
                 y={liquidY}
-                width="100"
-                height="100"
+                width="512"
+                height="512"
                 fill="#FF002B"
                 style={{
                   transition: 'y 0.05s linear'
@@ -103,9 +100,9 @@ export const HeartLoader: React.FC<HeartLoaderProps> = ({ onFinish, minDuration 
             {/* Crisp black heart outline */}
             <path
               ref={heartPathRef}
-              d="M50 85 C50 85 12 60 12 32 C12 18 24 10 37 10 C44 10 48 14 50 18 C52 14 56 10 63 10 C76 10 88 18 88 32 C88 60 50 85 50 85 Z"
+              d="M 256 448 C 244.6 448 233.8 443.3 225.8 435.1 L 63.8 269 C 14.8 218.8 16.5 137.9 67.5 89.8 C 117.8 42.4 197.8 45.8 244.1 97.4 L 256 110.7 L 267.9 97.4 C 314.2 45.8 394.2 42.4 444.5 89.8 C 495.5 137.9 497.2 218.8 448.2 269 L 286.2 435.1 C 278.2 443.3 267.4 448 256 448 Z"
               stroke="#000000"
-              strokeWidth="2.8"
+              strokeWidth="14"
               strokeLinejoin="round"
               strokeLinecap="round"
               fill="none"
