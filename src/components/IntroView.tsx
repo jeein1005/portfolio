@@ -45,6 +45,9 @@ export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz }) => {
       <div className="absolute bottom-50 left-8 md:left-100">
         <SparkleStar size={68} className="animate-float-pulse" />
       </div>
+      <div className="absolute top-90 left-1/2 md:ml-180">
+        <SparkleStar size={66} className="animate-float-pulse [--motion-pulse-offset:0.12;]" />
+      </div>
       <div className="absolute bottom-30 right-10 md:right-24 [transform:rotate(45deg)]">
         <DaisyFlower size={124} className="animate-spin-slow" />
       </div>
@@ -88,10 +91,10 @@ export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz }) => {
           onClick={() => {
             onStartQuiz();
           }}
-          className="group relative inline-flex items-center justify-center gap-3 bg-[#fef08a] hover:bg-[#fde047] text-slate-950 font-bold text-base sm:text-lg md:text-xl px-8 sm:px-12 py-4 rounded-full border-3 border-black shadow-[4px_4px_0_#000] hover:shadow-[6px_6px_0_#000] active:translate-x-1 active:translate-y-1 active:shadow-[2px_2px_0_#000] transition-all cursor-pointer"
+          className="group relative inline-flex items-center justify-center gap-2 bg-[#FFC7E9] hover:bg-[#FFE3F4] text-slate-950 font-bold text-sm sm:text-base px-6 sm:px-10 py-3 rounded-full border-2 border-black shadow-[2px_2px_0_#000] hover:shadow-[3px_3px_0_#000] active:translate-x-1 active:translate-y-1 active:shadow-[2px_2px_0_#000] transition-all cursor-pointer"
         >
           <span>당신의 프로젝트에 딱 맞는 웹 개발자 찾기</span>
-          <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform" />
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
         </button>
       </div>
     </div>
