@@ -135,15 +135,11 @@
 
 .shadow-brutal:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 3px 4px 0px #000;
+  box-shadow: 2px 3px 0px #000;
 }
 
 .shadow-brutal:active {
   transform: translate(2px, 2px);
-  box-shadow: 1px 2px 0px #000;
-}
-
-.shadow-card {
   box-shadow: 1px 2px 0px #000;
 }
 

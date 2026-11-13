@@ -32,25 +32,25 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Zone 2: Navigation Links - Text only, NO icons as requested */}
       <nav className="flex items-center gap-2 sm:gap-3" aria-label="Main Navigation">
         <button
-          onClick={() => onNavigate('projects')}
-          className={`font-sans-body border-1 border-black rounded-full px-4 sm:px-5 py-1.5 text-xs sm:text-sm shadow-brutal transition-colors cursor-pointer ${
-            activeTab === 'projects'
-              ? 'bg-[#fef08a] text-black font-black'
-              : 'bg-white text-slate-900 hover:bg-pink-100'
-          }`}
-        >
-          Projects
-        </button>
-
-        <button
           onClick={() => onNavigate('about')}
           className={`font-sans-body border-1 border-black rounded-full px-4 sm:px-5 py-1.5 text-xs sm:text-sm shadow-brutal transition-colors cursor-pointer ${
             activeTab === 'about'
-              ? 'bg-[#fef08a] text-black font-black'
+              ? 'bg-[#FFC7E9] text-black font-bold'
               : 'bg-white text-slate-900 hover:bg-pink-100'
           }`}
         >
           About Me
+        </button>
+        
+        <button
+          onClick={() => onNavigate('projects')}
+          className={`font-sans-body border-1 border-black rounded-full px-4 sm:px-5 py-1.5 text-xs sm:text-sm shadow-brutal transition-colors cursor-pointer ${
+            activeTab === 'projects'
+              ? 'bg-[#FFC7E9] text-black font-bold'
+              : 'bg-white text-slate-900 hover:bg-pink-100'
+          }`}
+        >
+          Projects
         </button>
       </nav>
     </header>

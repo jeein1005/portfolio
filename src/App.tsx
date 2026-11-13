@@ -202,7 +202,10 @@ export default function App() {
           {activeTab === 'quiz' && (
             <>
               {quizStep === 'intro' && (
-                <IntroView onStartQuiz={handleStartQuiz} />
+                <IntroView 
+                  onStartQuiz={handleStartQuiz} 
+                  onNavigate={handleNavigate} 
+                />
               )}
 
               {quizStep === 'question' && (

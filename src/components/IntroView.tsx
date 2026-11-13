@@ -5,9 +5,10 @@ import { DaisyFlower, RetroSmiley, SparkleStar, Rainbow } from './FloatingSticke
 
 interface IntroViewProps {
   onStartQuiz: () => void;
+  onNavigate: (tab: 'quiz' | 'projects' | 'about') => void;
 }
 
-export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz }) => {
+export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz, onNavigate }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
 
@@ -65,7 +66,7 @@ export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz }) => {
             ref={headlineRef}
             className="text-title retro-3d-title font-serif-title tracking-tight uppercase flex items-center justify-center flex-wrap gap-x-2 sm:gap-x-4"
           >
-            <span className="animate-breathe-slow [--motion-breathe-distance:10px] [animation-duration:5000ms]">MATCH</span>
+            <span className="animate-breathe-slow [--motion-breathe-distance:10px] [animation-duration:5000ms]">SENSE</span>
             
             <span className="retro-script-word font-script mr-1 sm:mr-3 select-none animate-breathe-slow [--motion-breathe-distance:8px] [animation-duration:7000ms] [animation-delay:500ms]">
               Of
@@ -75,25 +76,22 @@ export const IntroView: React.FC<IntroViewProps> = ({ onStartQuiz }) => {
           </h1>
 
           <p className="font-sans-body text-sm md:text-base text-slate-800 font-medium max-w-xl mx-auto leading-relaxed mt-8">
-            간단한 퀴즈를 풀며
+            시각적인 편안함과 안정적인 기능.
             <br className="hidden sm:inline" />
-            내가 같이 일하고 싶은 사람의 작업 성향과 개발 철학을 파악해보세요.
-            <br className="hidden sm:inline" />
-            <br/>
-            질문이 끝나면 당신의 프로젝트에
-            <br className="hidden sm:inline" />
-            100% 매칭되는 파트너를 만나보실 수 있습니다!
+            사용자와 맞닿는 화면을 세심하게 빚어내는&nbsp;
+            <br className="sm:hidden" />
+            UI/UX 개발자의 포트폴리오입니다.
           </p>
         </div>
 
         {/* Big Action Button */}
         <button
           onClick={() => {
-            onStartQuiz();
+            onNavigate('about');
           }}
           className="group relative inline-flex items-center justify-center gap-2 bg-[#FFC7E9] hover:bg-[#FFE3F4] text-slate-950 font-bold text-sm sm:text-base px-6 sm:px-10 py-3 rounded-full border-2 border-black shadow-[2px_2px_0_#000] hover:shadow-[3px_3px_0_#000] active:translate-x-1 active:translate-y-1 active:shadow-[2px_2px_0_#000] transition-all cursor-pointer"
         >
-          <span>당신의 프로젝트에 딱 맞는 웹 개발자 찾기</span>
+          <span>About Me</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
         </button>
       </div>

@@ -12,6 +12,34 @@ export interface ProjectItem {
   githubUrl?: string;
 }
 
+interface BrandProject {
+  id: number;
+  title: string;
+  roleType: string;
+  badgeClass: string;
+  category: string;
+  description: string;
+}
+
+interface CareerItem {
+  company: string;
+  period: string;
+  description: string;
+}
+
+interface ProfileItem {
+  name: string;
+  age: string;
+  profileImage: string;
+  role: string;
+  email: string;
+  github: string;
+  location: string;
+  experienceYears: string;
+  certifications: string;
+  introduction: string;
+}
+
 export const PORTFOLIO_PROJECTS: ProjectItem[] = [
   {
     id: 'interactive-portfolio',
@@ -75,26 +103,105 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
   }
 ];
 
-export const DEVELOPER_PROFILE = {
+export const DEVELOPER_PROFILE: ProfileItem = {
   name: '엄지인 (Eom Jeein)',
+  age: '1991.06.18 (만 35세)',
+  profileImage: '/assets/profile.webp',
   role: 'Frontend & Interactive Web Publisher',
-  email: 'eomjeein0825@gmail.com',
-  github: 'https://github.com/eomjeein',
-  location: 'Seoul, Korea (Available for Remote / Hybrid)',
-  experienceYears: '3+ Years',
-  status: 'Open to Opportunities',
-  greeting: '안녕하세요! 디테일에 집착하고 생동감 있는 웹 경험을 만드는 퍼블리셔 엄지인입니다.',
+  email: 'eji910618.jeein@gmail.com',
+  github: 'https://github.com/jeein1005',
+  location: '천안시 서북구 성성동',
+  experienceYears: '10+ Years',
+  certifications: '정보처리산업기사',
   introduction: '기획자의 의도를 꿰뚫고, 디자이너의 감성을 브라우저에 그대로 피워내는 1px 퍼펙트 인터랙티브 퍼블리셔입니다. 복잡한 디자인 시안도 깔끔한 시맨틱 구조와 유지보수하기 쉬운 모듈식 코드로 완성하며, GSAP을 활용한 섬세한 모션으로 사용자에게 기분 좋은 몰입감을 선사합니다.',
-  competencies: [
-    { title: 'Pixel Perfect Markup', desc: 'Figma 디자인과 100% 일치하는 섬세한 간격, 폰트 및 반응형 그리드 퍼블리싱' },
-    { title: 'Interactive Motion', desc: 'GSAP, Canvas, CSS 애니메이션을 활용한 60fps 무결점 모션 인터랙션 구축' },
-    { title: 'Component Architecture', desc: 'React, TypeScript, Tailwind CSS를 활용한 재사용성과 확장성 높은 컴포넌트화' },
-    { title: 'Performance & SEO', desc: 'Core Web Vitals 최적화, 시맨틱 태그, 접근성(a11y) 표준 준수' }
-  ],
-  skills: [
-    { category: 'Publishing & Core', items: ['HTML5 (Semantic)', 'CSS3 / Modern Layout', 'Tailwind CSS', 'SCSS / PostCSS'] },
-    { category: 'Animation & Interactive', items: ['GSAP (ScrollTrigger, Timeline)', 'Web Animations API', 'Canvas 2D', 'Motion'] },
-    { category: 'Frontend Ecosystem', items: ['TypeScript', 'JavaScript (ES6+)', 'React 19', 'Vite', 'Next.js'] },
-    { category: 'Tools & Workflow', items: ['Figma', 'Git / GitHub', 'Chrome DevTools', 'Web Audio API'] }
-  ]
 };
+
+export const CAREER_DATA: CareerItem[] = [
+  {
+    company: "주식회사시스텀",
+    period: "2023. 7 ~ 2025. 8",
+    description: "프로젝트 참여, 다양한 성과 (웹 화면 UI/UX 개발)",
+  },
+  {
+    company: "그라픽 (GRAFIK)",
+    period: "2015. 2 ~ 2023. 7",
+    description: "프로젝트 참여, 다양한 성과 (웹 화면 UI/UX 개발)",
+  },
+  {
+    company: "주식회사엠엑스엔커머스코리아",
+    period: "2014. 1 ~ 2015. 1",
+    description: "회사 내부 브랜드 프로젝트 참여 (웹 화면 UI/UX 개발)",
+  },
+  {
+    company: "(주)아이티라인",
+    period: "2013. 6 ~ 2014. 1",
+    description: "회사 내부 브랜드 프로젝트 참여 (웹 화면 UI/UX 개발)",
+  },
+];
+
+export const BRAND_PROJECTS: BrandProject[] = [
+  {
+    id: 1,
+    title: "위즈위드",
+    roleType: "운영",
+    badgeClass: "bg-sky-100 text-sky-800 border-sky-400",
+    category: "E-Commerce",
+    description: "패션 & 라이프스타일 셀렉트 커머스 플랫폼 고도화 및 프로모션 UI/UX 운영 개발"
+  },
+  {
+    id: 2,
+    title: "더블유컨셉",
+    roleType: "운영",
+    badgeClass: "bg-sky-100 text-sky-800 border-sky-400",
+    category: "Global Fashion",
+    description: "글로벌 트렌드 패션 E-Commerce 웹 UI 컴포넌트 유지보수 및 크로스 브라우징 최적화"
+  },
+  {
+    id: 3,
+    title: "넷마블스토어",
+    roleType: "구축",
+    badgeClass: "bg-emerald-100 text-emerald-800 border-emerald-400",
+    category: "Game IP Commerce",
+    description: "글로벌 게임 IP 공식 굿즈 스토어 웹 프론트엔드 화면 신규 구축 및 반응형 퍼블리싱"
+  },
+  {
+    id: 4,
+    title: "마리오아울렛",
+    roleType: "구축 및 운영",
+    badgeClass: "bg-amber-100 text-amber-800 border-amber-400",
+    category: "Omnichannel Outlet",
+    description: "대형 옴니채널 패션 아울렛 공식 온라인몰 신규 구축 및 인터랙티브 UI 지속 운영"
+  },
+  {
+    id: 5,
+    title: "탑텐몰(굿웨어몰)",
+    roleType: "구축 및 운영",
+    badgeClass: "bg-amber-100 text-amber-800 border-amber-400",
+    category: "Integrated SPA Mall",
+    description: "신성통상 대표 패밀리 브랜드 통합몰 구축 및 대규모 반응형 UI 프론트엔드 개발"
+  },
+  {
+    id: 6,
+    title: "아난티",
+    roleType: "구축 및 운영",
+    badgeClass: "bg-amber-100 text-amber-800 border-amber-400",
+    category: "Luxury Resort & Hotel",
+    description: "프리미엄 리조트 멤버십 플랫폼 예약 및 브랜드 감성 인터랙션 구축/운영"
+  },
+  {
+    id: 7,
+    title: "이터널저니",
+    roleType: "운영",
+    badgeClass: "bg-sky-100 text-sky-800 border-sky-400",
+    category: "Culture & Lifestyle",
+    description: "도서 & 문화 큐레이션 셀렉트샵 디지털 플랫폼 웹 화면 UI/UX 퍼블리싱 운영"
+  },
+  {
+    id: 8,
+    title: "로사케이",
+    roleType: "리뉴얼 및 운영",
+    badgeClass: "bg-pink-100 text-pink-800 border-pink-400",
+    category: "Designer Brand",
+    description: "프리미엄 디자이너 핸드백 브랜드 공식 스토어 전면 리뉴얼 및 반응형 웹 퍼블리싱"
+  }
+];
