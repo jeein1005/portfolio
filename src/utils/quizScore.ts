@@ -2,17 +2,12 @@ export interface QuestionOption {
   id: 'A' | 'B';
   title: string;
   description: string;
-  tag: string;
-  archetype: 'architect' | 'craftsman' | 'creative' | 'speedy';
 }
 
 export interface QuizQuestion {
   id: number;
   questionNumber: string;
-  category: string;
   title: string;
-  subtitle: string;
-  cardHeadline: string;
   options: {
     A: QuestionOption;
     B: QuestionOption;
@@ -33,96 +28,85 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
     id: 1,
     questionNumber: '01',
-    category: 'CODING ENVIRONMENT',
-    title: '선호하는 코딩 환경은?',
-    subtitle: '새로운 프로젝트를 시작할 때 당신이 먼저 고려하는 작업 스타일은?',
-    cardHeadline: 'YOUR IDEAL CODING ENVIRONMENT:',
+    title: '새로운 프로젝트의 UI 마크업을 시작할 때, 당신이 더 선호하는 방식은?',
     options: {
       A: {
         id: 'A',
-        title: 'WebStorm에서 꼼꼼하게 구조 잡기',
-        description: '엄격한 타입 체크와 모듈화된 폴더 구조로 유지보수성 200% 확보하기',
-        tag: '체계적인 설계 & 아키텍처',
-        archetype: 'architect'
+        title: '확장성이 생명!',
+        description: '재사용 가능한 컴포넌트 단위로 쪼개고 디자인 토큰을 체계화하며 시작한다.'
       },
       B: {
         id: 'B',
-        title: '가벼운 에디터로 빠르게 테스트하기',
-        description: '민첩한 핫 리로드와 빠른 프로토타이핑으로 즉각적인 피드백 루프 돌리기',
-        tag: '신속한 실행 & 빠른 검증',
-        archetype: 'speedy'
+        title: '유연성이 생명!',
+        description: '모바일, 태블릿, 데스크탑을 아우르며 어떤 해상도에서도 틀어짐 없는 튼튼한 반응형(Responsive) 레이아웃 뼈대부터 잡는다.',
       }
     }
   },
   {
     id: 2,
     questionNumber: '02',
-    category: 'DEBUGGING STYLE',
-    title: '404 에러를 마주했을 때?',
-    subtitle: '예상치 못한 버그나 이슈가 발생했을 때 대처하는 방식은?',
-    cardHeadline: 'WHEN ENCOUNTERING A 404 OR CRITICAL BUG:',
+    title: '웹 페이지의 퀄리티를 한 단계 더 끌어올려야 한다면, 당신이 가장 먼저 집중할 부분은?',
     options: {
       A: {
         id: 'A',
-        title: '원인을 찾을 때까지 완벽하게 디버깅',
-        description: 'DevTools 네트워크 탭과 콜스택을 뜯어보며 근본 원인을 뿌리 뽑기',
-        tag: '심층 분석 & 근본 해결',
-        archetype: 'architect'
+        title: '어떤 환경에서도 완벽하게!',
+        description: '사파리, 모바일 웹 등 다양한 브라우저와 기기 해상도에서 레이아웃이 틀어지지 않는지 크로스 브라우징과 반응형 디테일을 한 번 더 꼼꼼히 점검한다.'
       },
       B: {
         id: 'B',
-        title: '직관적으로 부딪히며 유연하게 해결',
-        description: '다양한 대안과 우회로를 신속히 탐색해 프로젝트 일정 지연 없이 해결하기',
-        tag: '유연한 위기대응 & 직관적 감각',
-        archetype: 'creative'
+        title: '손끝에서 느껴지는 생동감!',
+        description: '버튼의 호버(Hover) 효과, 부드러운 스크롤 등 유저가 직접 만지고 경험하는 마이크로 인터랙션과 트랜지션을 다듬어 퀄리티를 높인다.'
       }
     }
   },
   {
     id: 3,
     questionNumber: '03',
-    category: 'UI & STYLING',
-    title: 'UI / CSS 스타일링을 할 때 당신의 철학은?',
-    subtitle: '디자인을 코드로 구현할 때 무엇을 가장 최우선으로 생각하나요?',
-    cardHeadline: 'YOUR CRAFT PHILOSOPHY FOR UI & STYLING:',
+    title: '런칭한 서비스의 사용자 경험(UX)을 개선하기 위해 당신이 취할 행동은?',
     options: {
       A: {
         id: 'A',
-        title: '1px의 오차도 없는 픽셀 퍼펙트 & 감성 모션',
-        description: '디자이너의 의도를 100% 구현하고 부드러운 인터랙션으로 감동 주기',
-        tag: '1px 픽셀 장인 & 모션 감각',
-        archetype: 'craftsman'
+        title: '정보 전달이 최우선!',
+        description: '텍스트의 가독성, 명도 대비, 여백(Whitespace)을 재조정하여 사용자가 화면에서 헤매지 않도록 시각적 계층을 명확히 한다.',
       },
       B: {
         id: 'B',
-        title: '디자인 시스템과 유틸리티 퍼스트의 확장성',
-        description: '재사용 가능한 토큰과 일관된 규칙으로 팀 전체의 생산성을 극대화하기',
-        tag: '디자인 시스템 & 높은 확장성',
-        archetype: 'architect'
+        title: '사용자의 마음으로!',
+        description: '실제 화면의 UI 플로우를 짚어보며 직관적이지 않은 동선과 마이크로 인터랙션을 다듬는다.',
       }
     }
   },
   {
     id: 4,
     questionNumber: '04',
-    category: 'COLLABORATION & MOTION',
-    title: '도전적인 인터랙션 아이디어가 나왔을 때?',
-    subtitle: '기획이나 디자인에서 새롭고 과감한 웹 모션을 제안받았을 때 당신의 반응은?',
-    cardHeadline: 'WHEN PROPOSED A BOLD INTERACTIVE MOTION:',
+    title: '최근 대세인 "생성형 AI", 실무에서 주로 어떻게 활용하시나요?',
     options: {
       A: {
         id: 'A',
-        title: '오히려 좋아! GSAP로 브라우저 한계까지 극대화',
-        description: '방문자의 시선을 사로잡는 차별화된 비주얼 인터랙션을 완성하기',
-        tag: 'GSAP 모션 탐구 & 인터랙티브 도전',
-        archetype: 'creative'
+        title: '나만의 페어 프로그래머!',
+        description: '복잡한 코드 리팩토링이나 디버깅에 적극 활용해 압도적으로 개발 생산성을 높인다.',
       },
       B: {
         id: 'B',
-        title: '60fps 성능과 사용자 접근성을 고려한 최적 균형',
-        description: '아름다움과 부드러운 퍼포먼스, 크로스 브라우징을 완벽하게 양립시키기',
-        tag: '성능 최적화 & 크로스 브라우징',
-        archetype: 'craftsman'
+        title: '똑똑한 작업 어시스턴트!',
+        description: '테스트용 더미 데이터 생성부터 화면 구성에 필요한 샘플 텍스트, 애니메이션 아이디어를 빠르게 수집할 때 활용한다.',
+      }
+    }
+  },
+  {
+    id: 5,
+    questionNumber: '05',
+    title: '피그마(Figma) 시안을 두고 기획/디자인팀과 커뮤니케이션을 해야 할 때?',
+    options: {
+      A: {
+        id: 'A',
+        title: '이 방식은 어때요?',
+        description: '디자인 의도를 살리면서 성능도 챙길 수 있는 합리적인 기술적 대안을 제안한다.',
+      },
+      B: {
+        id: 'B',
+        title: '숨은 디테일도 놓치지 말자!',
+        description: '피그마 시안에 빠져있기 쉬운 호버(Hover), 포커스(Focus), 에러 상태 등을 꼼꼼히 짚어내어 피드백을 주고받는다.',
       }
     }
   }

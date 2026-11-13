@@ -105,7 +105,7 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ onComplete, onReset })
       {/* Main Interactive Stage Box (Reflecting the layout from reference Screenshot 1) */}
       <div
         ref={stageRef}
-        className="w-full bg-[#fff4f6] border-3 md:border-4 border-black rounded-2xl md:rounded-3xl p-4 sm:p-8 md:p-12 shadow-[8px_8px_0_#000] relative overflow-hidden"
+        className="w-full bg-[#fff4f6] border-2 border-black rounded-md p-4 sm:p-8 md:p-12 shadow-[4px_4px_0_#000] relative overflow-hidden"
       >
         {/* Top bar with progress indicator */}
 
@@ -117,21 +117,12 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ onComplete, onReset })
               ref={leftCardRef}
               onClick={() => handleSelect('A')}
               disabled={isAnimating}
-              className={`group w-full max-w-sm bg-white border-3 border-black rounded-xl p-6 sm:p-7 text-left shadow-card hover:shadow-card-hover transition-all cursor-pointer relative ${
+              className={`group w-full max-w-sm bg-white border-2 border-black rounded-md px-4 py-2 sm:px-6 sm:py-4 text-left shadow-card hover:shadow-card-hover transition-all cursor-pointer relative ${
                 selectedOption === 'A' ? 'ring-4 ring-red-500 bg-red-50' : 'hover:-translate-y-1'
               }`}
               aria-label={`Option A: ${currentQuestion.options.A.title}`}
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-black text-white font-black text-sm border border-black shadow-[1px_1px_0_#000]">
-                  A
-                </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-wider text-pink-600 bg-pink-50 px-2.5 py-1 rounded-md border border-pink-200">
-                  {currentQuestion.options.A.tag}
-                </span>
-              </div>
-
-              <h4 className="text-base sm:text-lg font-black text-slate-900 mb-2 group-hover:text-pink-600 transition-colors leading-snug">
+              <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-pink-600 transition-colors leading-snug">
                 {currentQuestion.options.A.title}
               </h4>
 
@@ -145,7 +136,7 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ onComplete, onReset })
           <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center py-4">
             <div
               ref={centerCardRef}
-              className="relative w-64 sm:w-72 md:w-80 h-80 sm:h-96 bg-white border-4 md:border-[5px] border-red-600 rounded-2xl shadow-[8px_8px_0_rgba(0,0,0,0.9)] p-5 sm:p-6 flex flex-col justify-between select-none"
+              className="relative w-64 sm:w-72 md:w-80 h-80 sm:h-96 bg-white border-2 border-red-600 rounded-lg shadow-[4px_4px_0_rgba(0,0,0,0.9)] p-5 sm:p-6 flex flex-col justify-between select-none"
               style={{ transform: 'rotate(-3deg)' }}
             >
               {/* Corner Hearts (like playing card in reference) */}
@@ -159,14 +150,8 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ onComplete, onReset })
 
               {/* Center Headline in Instrument Serif */}
               <div className="text-center my-auto px-2">
-                <span className="block text-[11px] font-bold font-sans-body text-red-600 tracking-widest uppercase mb-2">
-                  DECISION MOMENT
-                </span>
-                <h3 className="font-serif-title text-2xl sm:text-3xl font-normal text-slate-900 uppercase tracking-wide leading-snug">
-                  {currentQuestion.cardHeadline}
-                </h3>
-                <p className="font-serif-title italic text-base sm:text-lg text-slate-800 mt-3">
-                  "{currentQuestion.title}"
+                <p className="text-base sm:text-lg text-slate-800 mt-3">
+                  {currentQuestion.title}
                 </p>
               </div>
 
@@ -187,32 +172,18 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ onComplete, onReset })
               ref={rightCardRef}
               onClick={() => handleSelect('B')}
               disabled={isAnimating}
-              className={`group w-full max-w-sm bg-white border-3 border-black rounded-xl p-6 sm:p-7 text-left shadow-card hover:shadow-card-hover transition-all cursor-pointer relative ${
+              className={`group w-full max-w-sm bg-white border-2 border-black rounded-md px-4 py-2 sm:px-6 sm:py-4 text-left shadow-card hover:shadow-card-hover transition-all cursor-pointer relative ${
                 selectedOption === 'B' ? 'ring-4 ring-red-500 bg-red-50' : 'hover:-translate-y-1'
               }`}
               aria-label={`Option B: ${currentQuestion.options.B.title}`}
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-black text-white font-black text-sm border border-black shadow-[1px_1px_0_#000]">
-                  B
-                </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
-                  {currentQuestion.options.B.tag}
-                </span>
-              </div>
-
-              <h4 className="text-base sm:text-lg font-black text-slate-900 mb-2 group-hover:text-blue-600 transition-colors leading-snug">
+              <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors leading-snug">
                 {currentQuestion.options.B.title}
               </h4>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 {currentQuestion.options.B.description}
               </p>
-
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-black transition-colors">
-                <span>선택하기</span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
             </button>
           </div>
         </div>
