@@ -1,6 +1,6 @@
 # ✨ Interactive UI/UX Developer Portfolio
 
-A/B 퀴즈 인터랙션을 통해 개발자의 업무 성향과 역량을 직관적으로 파악할 수 있는 원페이지(One-page) 인터랙티브 포트폴리오 웹사이트입니다.
+그리드 레이아웃과 감각적인 마이크로 인터랙션을 통해 UI/UX 개발자의 역량과 작업물을 직관적으로 파악할 수 있는 원페이지(One-page) 인터랙티브 포트폴리오 웹사이트입니다.
 
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white)
@@ -12,10 +12,10 @@ A/B 퀴즈 인터랙션을 통해 개발자의 업무 성향과 역량을 직관
 
 ## 💡 Key Features
 
-- **A/B Match Quiz**: 5가지 퀴즈 문항을 통해 기획·디자인·개발 협업 성향을 도출하는 인터랙티브 퀴즈
-- **Smooth Animations**: GSAP 기반의 자연스러운 화면 전환 및 마이크로 인터랙션
-- **Responsive Layout**: Tailwind CSS를 활용하여 모바일(Vertical) 및 데스크톱(Horizontal) 환경에 최적화된 반응형 UI
-- **Typography Design**: 영문 타이틀/액센트 서체와 한글 Pretendard 폰트의 정교한 조합
+- **Bento Grid Layout**: 정보의 위계를 고려한 벤토 그리드 형태의 UI로 기술 스택, 경력, 소개 등을 깔끔하고 압축적으로 전달
+- **Smooth Animations**: GSAP 기반의 자연스러운 화면 전환 및 스크롤에 반응하는 마이크로 인터랙션
+- **Responsive Layout**: Tailwind CSS를 활용하여 모바일 및 데스크톱 환경에 완벽하게 최적화된 반응형 UI
+- **Typography Design**: 영문 타이틀 서체와 한글 Pretendard 폰트의 정교한 조합을 통한 가독성 극대화
 
 ---
 
@@ -37,9 +37,9 @@ A/B 퀴즈 인터랙션을 통해 개발자의 업무 성향과 역량을 직관
 portfolio/
 ├── public/                # 정적 에셋 (이미지 등)
 ├── src/
-│   ├── components/        # UI 컴포넌트 (Navbar, QuizSection, ResultView 등)
-│   ├── data/              # 퀴즈 문항 및 포트폴리오 데이터 (portfolioData.ts)
-│   ├── utils/             # 점수 계산 및 효과음 로직 (quizScore.ts 등)
+│   ├── components/        # UI 컴포넌트 (Navbar, IntroView, AboutPage 등)
+│   ├── data/              # 포트폴리오 프로젝트 및 경력 데이터 (portfolioData.ts)
+│   ├── utils/             # 공통 유틸리티 함수
 │   ├── App.tsx            # 메인 루트 컴포넌트
 │   ├── index.css          # Tailwind & 전역 스타일 정의
 │   └── main.tsx           # React 마운트 엔트리 포인트
