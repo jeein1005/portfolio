@@ -7,6 +7,8 @@ import {
   Send,
 } from 'lucide-react';
 import { DEVELOPER_PROFILE, CAREER_DATA, BRAND_PROJECTS } from '../data/portfolioData';
+import { RetroFrameCard } from './RetroFrameCard';
+import { FlipCard } from './FlipCard';
 
 interface AboutPageProps {
   onBackToQuiz: () => void;
@@ -402,40 +404,59 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </h1>
       </div>
       <div 
-          id="projects" 
-          className="lg:col-span-3 scroll-mt-24 relative flex flex-col justify-between overflow-hidden"
-        >
+        id="projects" 
+        className="lg:col-span-3 scroll-mt-24 relative flex flex-col justify-between"
+      >
+        {/* 8 Brand Projects Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 relative z-10 text-left my-auto">
+          {BRAND_PROJECTS.map((item, index) => (
+            <FlipCard
+              key={item.id ?? item.title ?? index}
+              className="min-h-[320px] sm:min-h-[370px]"
+              backFrameColor="#FF1E1E"
+              frontContent={
+                <div className="flex flex-col justify-between h-full text-center py-2">
+                  {/* 상단: 카테고리 */}
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                    {item.category}
+                  </span>
 
-          {/* 8 Brand Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 relative z-10 text-left my-auto">
-            {BRAND_PROJECTS.map((item) => (
-              <div
-                className="group relative bg-white/90 border-2 border-black rounded-2xl p-4 sm:p-5 flex flex-col justify-between transition-all cursor-pointer min-h-[160px]"
-              >
-                <CardCornerHearts />
+                  {/* 중앙: 브랜드 타이틀 */}
+                  <h3 className="relative text-3xl sm:text-4xl font-bold my-auto px-1 break-keep">
+                    <img src={item.logo} alt={`${item.title} 로고`} className={`block mx-auto object-contain ${item.logoHeightClass}`} />
+                  </h3>
 
-                <div>
-                  <div className="flex items-center justify-between gap-1 mb-2.5 pt-2">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      {item.category}
-                    </span>
-                    <span className={`text-[10px] border px-2 py-0.5 rounded-full ${item.badgeClass}`}>
+                  {/* 하단: 역할 배지 */}
+                  <div>
+                    <span className={`inline-block text-[10px] border px-2.5 py-0.5 rounded-full font-medium`}>
                       {item.roleType}
                     </span>
                   </div>
-
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-600 mt-1.5 font-medium leading-relaxed line-clamp-2">
-                    {item.description}
-                  </p>
                 </div>
-              </div>
-            ))}
-          </div>
+              }
+              backContent={
+                <div className="flex flex-col justify-between h-full text-left">
+                  <div>
+                    <div className="flex items-center justify-between gap-1 mb-2">
+                      <span className="text-[10px] font-bold text-[#FF1E1E] uppercase tracking-widest">
+                        {item.category}
+                      </span>
+                    </div>
+
+                    <h4 className="text-base font-bold text-slate-900 mb-2">
+                      {item.title}
+                    </h4>
+
+                    <p className="text-xs text-slate-700 font-medium leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              }
+            />
+          ))}
         </div>
+      </div>
     </div>
   );
 };

@@ -14,9 +14,10 @@ export interface ProjectItem {
 
 interface BrandProject {
   id: number;
+  logo: string;
+  logoHeightClass: string;
   title: string;
   roleType: string;
-  badgeClass: string;
   category: string;
   description: string;
 }
@@ -142,66 +143,74 @@ export const CAREER_DATA: CareerItem[] = [
 export const BRAND_PROJECTS: BrandProject[] = [
   {
     id: 1,
+    logo: "/assets/projects/wizwid.webp",
+    logoHeightClass: "max-h-16 sm:max-h-20",
     title: "위즈위드",
     roleType: "운영",
-    badgeClass: "bg-sky-100 text-sky-800 border-sky-400",
     category: "E-Commerce",
-    description: "패션 & 라이프스타일 셀렉트 커머스 플랫폼 고도화 및 프로모션 UI/UX 운영 개발"
+    description: "글로벌 패션 & 라이프스타일 셀렉트 커머스 플랫폼 고도화 및 프로모션 UI/UX 운영 개발"
   },
   {
     id: 2,
+    logo: "/assets/projects/wconcept.webp",
+    logoHeightClass: "max-h-4 sm:max-h-6",
     title: "더블유컨셉",
     roleType: "운영",
-    badgeClass: "bg-sky-100 text-sky-800 border-sky-400",
-    category: "Global Fashion",
-    description: "글로벌 트렌드 패션 E-Commerce 웹 UI 컴포넌트 유지보수 및 크로스 브라우징 최적화"
+    category: "E-Commerce",
+    description: "트렌드 패션 E-Commerce 웹 UI 컴포넌트 유지보수 및 크로스 브라우징 최적화"
   },
   {
     id: 3,
+    logo: "/assets/projects/netmarble.webp",
+    logoHeightClass: "max-h-6 sm:max-h-8",
     title: "넷마블스토어",
     roleType: "구축",
-    badgeClass: "bg-emerald-100 text-emerald-800 border-emerald-400",
-    category: "Game IP Commerce",
+    category: "E-Commerce",
     description: "글로벌 게임 IP 공식 굿즈 스토어 웹 프론트엔드 화면 신규 구축 및 반응형 퍼블리싱"
   },
   {
     id: 4,
+    logo: "/assets/projects/mario.webp",
+    logoHeightClass: "max-h-6 sm:max-h-8",
     title: "마리오아울렛",
-    roleType: "구축 및 운영",
-    badgeClass: "bg-amber-100 text-amber-800 border-amber-400",
-    category: "Omnichannel Outlet",
+    roleType: "운영",
+    category: "E-Commerce",
     description: "대형 옴니채널 패션 아울렛 공식 온라인몰 신규 구축 및 인터랙티브 UI 지속 운영"
   },
   {
     id: 5,
+    logo: "/assets/projects/goodwearmall.webp",
+    logoHeightClass: "max-h-6 sm:max-h-8",
     title: "탑텐몰(굿웨어몰)",
     roleType: "구축 및 운영",
-    badgeClass: "bg-amber-100 text-amber-800 border-amber-400",
-    category: "Integrated SPA Mall",
+    category: "E-Commerce",
     description: "신성통상 대표 패밀리 브랜드 통합몰 구축 및 대규모 반응형 UI 프론트엔드 개발"
   },
   {
     id: 6,
+    logo: "/assets/projects/ananti.webp",
+    logoHeightClass: "max-h-4 sm:max-h-6",
     title: "아난티",
     roleType: "구축 및 운영",
-    badgeClass: "bg-amber-100 text-amber-800 border-amber-400",
     category: "Luxury Resort & Hotel",
     description: "프리미엄 리조트 멤버십 플랫폼 예약 및 브랜드 감성 인터랙션 구축/운영"
   },
   {
     id: 7,
+    logo: "/assets/projects/eternal.webp",
+    logoHeightClass: "max-h-6 sm:max-h-8",
     title: "이터널저니",
     roleType: "운영",
-    badgeClass: "bg-sky-100 text-sky-800 border-sky-400",
-    category: "Culture & Lifestyle",
+    category: "Lifestyle E-Commerce",
     description: "도서 & 문화 큐레이션 셀렉트샵 디지털 플랫폼 웹 화면 UI/UX 퍼블리싱 운영"
   },
   {
     id: 8,
+    logo: "/assets/projects/rosak.webp",
+    logoHeightClass: "max-h-4 sm:max-h-6",
     title: "로사케이",
     roleType: "리뉴얼 및 운영",
-    badgeClass: "bg-pink-100 text-pink-800 border-pink-400",
-    category: "Designer Brand",
-    description: "프리미엄 디자이너 핸드백 브랜드 공식 스토어 전면 리뉴얼 및 반응형 웹 퍼블리싱"
+    category: "E-Commerce",
+    description: "카페24로 운영되는 디자이너 핸드백 브랜드 공식 스토어 부분 리뉴얼 및 반응형 웹 퍼블리싱"
   }
 ];

@@ -198,42 +198,44 @@ export default function App() {
 
         {/* Main Content Area */}
         <main className="flex-1 flex flex-col items-center justify-center relative z-10 w-full px-3 sm:px-6 lg:px-8">
-          {/* TAB 1: QUIZ FLOW */}
-          {activeTab === 'quiz' && (
-            <>
-              {quizStep === 'intro' && (
-                <IntroView 
-                  onStartQuiz={handleStartQuiz} 
-                  onNavigate={handleNavigate} 
-                />
-              )}
+          <div key={activeTab} className="w-full animate-fade-in">
+            {/* TAB 1: QUIZ FLOW */}
+            {activeTab === 'quiz' && (
+              <>
+                {quizStep === 'intro' && (
+                  <IntroView 
+                    onStartQuiz={handleStartQuiz} 
+                    onNavigate={handleNavigate} 
+                  />
+                )}
 
-              {quizStep === 'question' && (
-                <QuizSection
-                  onComplete={handleQuizComplete}
-                  onReset={handleResetQuiz}
-                />
-              )}
+                {quizStep === 'question' && (
+                  <QuizSection
+                    onComplete={handleQuizComplete}
+                    onReset={handleResetQuiz}
+                  />
+                )}
 
-              {quizStep === 'result' && (
-                <ResultView
-                  answers={answers}
-                  onRestart={handleResetQuiz}
-                  onOpenProjects={() => handleNavigate('projects')}
-                  onOpenAbout={() => handleNavigate('about')}
-                />
-              )}
-            </>
-          )}
+                {quizStep === 'result' && (
+                  <ResultView
+                    answers={answers}
+                    onRestart={handleResetQuiz}
+                    onOpenProjects={() => handleNavigate('projects')}
+                    onOpenAbout={() => handleNavigate('about')}
+                  />
+                )}
+              </>
+            )}
 
-          {/* TAB 2 & 3: INTEGRATED ABOUT ME & PROJECTS PAGE */}
-          {(activeTab === 'about' || activeTab === 'projects') && (
-            <AboutPage
-              onBackToQuiz={() => handleNavigate('quiz')}
-              initialSection={activeTab === 'projects' ? 'projects' : 'about'}
-              onNavigateToProjects={() => handleNavigate('projects')}
-            />
-          )}
+            {/* TAB 2 & 3: INTEGRATED ABOUT ME & PROJECTS PAGE */}
+            {(activeTab === 'about' || activeTab === 'projects') && (
+              <AboutPage
+                onBackToQuiz={() => handleNavigate('quiz')}
+                initialSection={activeTab === 'projects' ? 'projects' : 'about'}
+                onNavigateToProjects={() => handleNavigate('projects')}
+              />
+            )}
+          </div>
         </main>
       </div>
     </div>
